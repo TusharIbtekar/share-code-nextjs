@@ -12,5 +12,6 @@ export interface Post {
       url: string;
     };
     body: object[];
-  }
+  };
+  slug;
 }
