@@ -51,3 +51,9 @@ export const getServerSideProps = async () => {
     }
   };
 }
+
+// 'comments': *[
+//   _type == "comment" && 
+//   post._ref == ^._id && 
+//   approved == true
+// ]
