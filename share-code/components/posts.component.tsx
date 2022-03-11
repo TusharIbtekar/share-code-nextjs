@@ -17,11 +17,11 @@ function Posts({ posts }: Props) {
         {posts.map((post) => (
           <Link key={post._id} href={`post/${post.slug.current}`}>
             <div>
-              {/* {
+              {
                 post.mainImage && (
                   <img src={urlFor(post.mainImage).url()} alt="" />
                 )
-              } */}
+              }
             </div>
           </Link>
 
