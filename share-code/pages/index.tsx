@@ -52,8 +52,23 @@ export const getServerSideProps = async () => {
   };
 }
 
-// 'comments': *[
-//   _type == "comment" && 
-//   post._ref == ^._id && 
-//   approved == true
-// ]
+// * [_type == "post" && slug.current == $slug][0] {
+//   _id,
+//     _createdAt,
+//     title,
+//     author -> {
+//       name,
+//       image
+//     },
+//     'comments': * [
+//       _type == "comment" &&
+//       post._ref == ^._id &&
+//       approved == true
+//     ]
+//   description,
+//     mainImage,
+//     slug{
+//     current
+//   },
+//   body,
+// }
