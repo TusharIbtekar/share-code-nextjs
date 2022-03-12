@@ -7,12 +7,11 @@ export interface Post {
     image: string;
   },
   description: string;
-  body: object[];
   mainImage: {
     asset: {
       url: string;
     };
-    body: object[];
   };
+  body: object[];
   slug;
 }
