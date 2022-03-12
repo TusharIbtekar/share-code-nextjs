@@ -23,7 +23,9 @@ export default function Home(props: Props) {
 
       <Navbar />
 
-      <Posts posts={posts} />
+      <div className='flex flex-col max-w-3xl mx-auto p-5'>
+        <Posts posts={posts} />
+      </div>
 
     </div>
   )
@@ -64,7 +66,7 @@ export const getServerSideProps = async () => {
 //       _type == "comment" &&
 //       post._ref == ^._id &&
 //       approved == true
-//     ]
+//     ],
 //   description,
 //     mainImage,
 //     slug{

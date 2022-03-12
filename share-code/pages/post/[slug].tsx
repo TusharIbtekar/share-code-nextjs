@@ -110,7 +110,7 @@ function Post({ post }: Props) {
             <input
               {...register("name", { required: true })}
               className='shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 hover:ring-1'
-              placeholder='name'
+              placeholder='Name'
               type='text' />
           </label>
           <label className='block mb-5'>
@@ -118,7 +118,7 @@ function Post({ post }: Props) {
             <input
               {...register("email", { required: true })}
               className='shadow border rounded py-2 px-3 form-input mt-1 block w-full ring-yellow-500 hover:ring-1'
-              placeholder='name'
+              placeholder='Email'
               type='email' />
           </label>
           <label className='block mb-5'>
@@ -126,7 +126,7 @@ function Post({ post }: Props) {
             <textarea
               {...register("comment", { required: true })}
               className='shadow border rounded py-2 px-3 form-textarea mt-1 block w-full ring-yellow-500 hover:ring-1'
-              placeholder='name'
+              placeholder='Comment'
               rows={8} />
           </label>
 
@@ -206,8 +206,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     },
     'comments': *[
       _type == "comment" &&
-      post._ref == ^._id &&
-      approved == true],
+      post._ref == ^._id
+    ],
     description,
     mainImage,
     slug{
