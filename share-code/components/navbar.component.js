@@ -35,13 +35,13 @@ function Navbar() {
           <>
 
             <Link href='/profile'>
-              <h3 className="text-green-600">{userInfo.name}</h3>
+              <h3 className="text-green-600 cursor-pointer">{userInfo.name}</h3>
             </Link>
-            <h3 className="text-red-400" onClick={logoutClickHandler}>Logout</h3>
+            <h3 className="text-red-400 cursor-pointer" onClick={logoutClickHandler}>Logout</h3>
 
           </>
         ) : (<Link href='/login'>
-          <h3 className="text-green-600">Sign In</h3>
+          <h3 className="text-green-600 cursor-pointer">Sign In</h3>
         </Link>)}
 
         <h3 className="border px-4 py-1 rounded-full
