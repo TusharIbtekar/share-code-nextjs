@@ -15,19 +15,17 @@ import axios from 'axios';
 import jsCookie from 'js-cookie';
 import { useRouter } from 'next/router';
 import { Store } from '../utils/Store';
-// import { getError } from '../utils/error';
+import { getError } from '../utils/error';
 
 export default function RegisterScreen() {
   const { state, dispatch } = useContext(Store);
   const { userInfo } = state;
   const router = useRouter();
-  const { redirect } = router.query;
-
   useEffect(() => {
     if (userInfo) {
-      router.push(redirect || '/');
+      router.push('/');
     }
-  }, [router, userInfo, redirect]);
+  }, [router, userInfo]);
 
   const {
     handleSubmit,
@@ -50,9 +48,9 @@ export default function RegisterScreen() {
       });
       dispatch({ type: 'USER_LOGIN', payload: data });
       jsCookie.set('userInfo', JSON.stringify(data));
-      router.push(redirect || '/');
+      router.push('/');
     } catch (err) {
-      // enqueueSnackbar(getError(err), { variant: 'error' });
+      enqueueSnackbar(getError(err), { variant: 'error' });
     }
   };
   return (
@@ -184,8 +182,8 @@ export default function RegisterScreen() {
           </Button>
         </ListItem>
         <ListItem>
-          Already have an account?{' '}
-          <NextLink href={`/login?redirect=${redirect || '/'}`} passHref>
+          Already have an account?
+          <NextLink href={'/login'} passHref>
             <Link>Login</Link>
           </NextLink>
         </ListItem>
