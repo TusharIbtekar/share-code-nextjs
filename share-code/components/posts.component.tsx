@@ -24,10 +24,10 @@ function Posts({ posts }: Props) {
               <div className="flex justify-between p-5 bg-white">
                 <div>
                   <p className="text-lg font-bold">{post.title}</p>
-                  <p className="text-xs">{post.description} by {post.author.name}</p>
+                  <p className="text-xs">{post.description} by {post.author?.name}</p>
                 </div>
                 {
-                  post.author.image && (
+                  post.author?.image && (
                     <img className="h-12 w-12 rounded-full" src={urlFor(post.author.image).url()} alt="" />
                   )
                 }

@@ -5,6 +5,7 @@ import { sanityClient, urlFor } from '../sanity'
 import Navbar from '../components/navbar.component'
 import { Post } from '../typings';
 import Posts from '../components/posts.component';
+import CreatePost from '../components/createPost.component';
 
 interface Props {
   posts: Post[];
@@ -12,7 +13,7 @@ interface Props {
 
 export default function Home(props: Props) {
   const { posts } = props;
-  console.log(posts);
+  // console.log(posts);
 
   return (
     <div className="">
@@ -24,6 +25,7 @@ export default function Home(props: Props) {
       <Navbar />
 
       <div className='flex flex-col max-w-3xl mx-auto p-5'>
+        <CreatePost />
         <Posts posts={posts} />
       </div>
 

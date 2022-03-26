@@ -9,8 +9,10 @@
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.5.1",
+    "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^3.2.0",
     "@sanity/image-url": "^1.0.1",
+    "@types/react-syntax-highlighter": "^13.5.2",
     "axios": "^0.26.1",
     "bcryptjs": "^2.4.3",
     "js-cookie": "^3.0.1",
@@ -21,7 +23,9 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.28.0",
-    "react-portable-text": "^0.4.3"
+    "react-modal": "^3.14.4",
+    "react-portable-text": "^0.4.3",
+    "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
     "@types/node": "17.0.4",

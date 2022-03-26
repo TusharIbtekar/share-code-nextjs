@@ -8,6 +8,7 @@ export interface Post {
   },
   comments: Comment[];
   description: string;
+  codeBlock: code;
   mainImage: {
     asset: {
       url: string;

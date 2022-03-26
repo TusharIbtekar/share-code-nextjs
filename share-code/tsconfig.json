@@ -26,7 +26,8 @@
     "pages/login.js",
     "pages/register.js",
     "pages/api/users/register.js",
-    "components/navbar.component.js"
+    "components/navbar.component.js",
+    "pages/api/createPost.js"
   ],
   "exclude": [
     "node_modules"

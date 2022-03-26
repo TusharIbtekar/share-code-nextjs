@@ -14,19 +14,44 @@ export default {
       type: 'string',
     },
     {
+      name: 'codeBlock',
+      title: 'Code Block',
+      type: 'code',
+      options: {
+        theme: 'solarized_dark',
+        language: 'js',
+        languageAlternatives: [
+          { title: 'Javascript', value: 'js' },
+          { title: 'HTML', value: 'html' },
+          { title: 'CSS', value: 'css' },
+          { title: 'SASS', value: 'sass' },
+        ]
+      }
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       options: {
         source: 'title',
         maxLength: 96,
+        slugify: input => input
+          .toLowerCase()
+          .replace(/\s+/g, '-')
+          .slice(0, 200)
       },
     },
+    // {
+    //   name: 'author',
+    //   title: 'Author',
+    //   type: 'reference',
+    //   to: { type: 'author' },
+    // },
     {
-      name: 'author',
+      name: 'user',
       title: 'Author',
       type: 'reference',
-      to: { type: 'author' },
+      to: { type: 'user' },
     },
     {
       name: 'mainImage',
@@ -57,13 +82,20 @@ export default {
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
+      // author: 'author.name',
+      author: 'user.name',
       media: 'mainImage',
     },
+    // prepare(selection) {
+    //   const { author } = selection
+    //   return Object.assign({}, selection, {
+    //     subtitle: author && `by ${author}`,
+    //   })
+    // },
     prepare(selection) {
-      const { author } = selection
+      const { user } = selection
       return Object.assign({}, selection, {
-        subtitle: author && `by ${author}`,
+        subtitle: user && `by ${user}`,
       })
     },
   },
