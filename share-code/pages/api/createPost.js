@@ -2,10 +2,10 @@ import nc from 'next-connect';
 import axios from 'axios';
 import config from '../../utils/config';
 
-
 const handler = nc();
 
 handler.post(async (req, res) => {
+
 
   const projectId = config.projectId;
   const dataset = config.dataset;
@@ -18,7 +18,11 @@ handler.post(async (req, res) => {
     _type: 'code',
     code: req.body.codeBlock,
   };
-  console.log(slug);
+  const author = {
+    _type: 'reference',
+    _ref: req.body.author,
+    // user: req.body.author.name
+  }
   const createMutations = [
     {
       create: {
@@ -27,7 +31,7 @@ handler.post(async (req, res) => {
         description: req.body.description,
         codeBlock: codeBlock,
         slug: slug,
-        author: userInfo.name
+        user: author,
         // author: {
         //   _type: 'reference',
         //   _ref: userInfo._id

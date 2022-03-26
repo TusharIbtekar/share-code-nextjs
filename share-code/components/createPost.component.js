@@ -1,16 +1,19 @@
-import { Button, Link, List, ListItem, TextField, Typography } from '@mui/material'; import React, { useState } from 'react'
+import { Button, List, ListItem, TextField, Typography } from '@mui/material';
+import React, { useState } from 'react'
 import Modal from 'react-modal';
 import Form from './form.component';
 import { useForm, Controller } from 'react-hook-form';
 import { useSnackbar } from 'notistack';
 import { getError } from '../utils/error';
 import axios from 'axios';
-
-
+import { useContext } from 'react'
+import { Store } from '../utils/Store'
 
 
 const CreatePost = () => {
   const [actions, setActions] = useState({ isModal: false })
+  const { state, dispatch } = useContext(Store);
+  const { userInfo } = state
 
   const {
     handleSubmit,
@@ -26,11 +29,9 @@ const CreatePost = () => {
         title,
         description,
         codeBlock,
+        author: userInfo._id,
       });
       console.log(data);
-      // dispatch({ type: 'USER_LOGIN', payload: data });
-      // jsCookie.set('userInfo', JSON.stringify(data));
-      // router.push('/');
     } catch (err) {
       enqueueSnackbar(getError(err), { variant: 'error' });
     }
