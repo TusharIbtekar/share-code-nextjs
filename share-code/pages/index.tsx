@@ -1,4 +1,3 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
 import { sanityClient, urlFor } from '../sanity'
 
@@ -13,7 +12,6 @@ interface Props {
 
 export default function Home(props: Props) {
   const { posts } = props;
-  // console.log(posts);
 
   return (
     <div className="">
@@ -38,7 +36,7 @@ export const getServerSideProps = async () => {
   *[_type == "post"] {
     _id,
     title,
-    author-> {
+    user-> {
       name,
       image
   },

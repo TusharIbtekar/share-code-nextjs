@@ -1,4 +1,4 @@
-import { Button, List, ListItem, TextField, Typography } from '@mui/material';
+import { Button, List, ListItem, TextField, Typography, TextareaAutosize } from '@mui/material';
 import React, { useState } from 'react'
 import Modal from 'react-modal';
 import Form from './form.component';
@@ -8,12 +8,14 @@ import { getError } from '../utils/error';
 import axios from 'axios';
 import { useContext } from 'react'
 import { Store } from '../utils/Store'
+import { useRouter } from 'next/router';
 
 
 const CreatePost = () => {
   const [actions, setActions] = useState({ isModal: false })
   const { state, dispatch } = useContext(Store);
   const { userInfo } = state
+  const router = useRouter();
 
   const {
     handleSubmit,
@@ -31,10 +33,11 @@ const CreatePost = () => {
         codeBlock,
         author: userInfo._id,
       });
-      console.log(data);
     } catch (err) {
       enqueueSnackbar(getError(err), { variant: 'error' });
     }
+    setActions({ isModal: false })
+    router.push('/');
   };
 
   return (

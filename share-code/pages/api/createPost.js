@@ -32,10 +32,6 @@ handler.post(async (req, res) => {
         codeBlock: codeBlock,
         slug: slug,
         user: author,
-        // author: {
-        //   _type: 'reference',
-        //   _ref: userInfo._id
-        // }
       },
     },
   ];

@@ -7,6 +7,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react'
 const BlockContent = require('@sanity/block-content-to-react')
 import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 
 interface Props {
@@ -17,7 +18,8 @@ const serializers = {
   types: {
     code: (props: any) => (
       <div className='my-2'>
-        <SyntaxHighlighter language={props.node.language}>
+        {/* <SyntaxHighlighter language={props.node.language}> */}
+        <SyntaxHighlighter language="javascript">
           {props.node.code}
         </SyntaxHighlighter>
       </div>
@@ -33,6 +35,8 @@ interface IFromInput {
 }
 
 function Post({ post }: Props) {
+  console.log(post);
+
   const [submitted, setSubmitted] = useState(false);
 
   const { register, handleSubmit, formState: { errors } } = useForm<IFromInput>();
@@ -73,11 +77,11 @@ function Post({ post }: Props) {
 
         <div className='flex items-center space-x-2'>
           {
-            post.author?.image && (
-              <img className="h-10 w-10 rounded-full" src={urlFor(post.author.image).url()} alt="" />
+            post.user?.image && (
+              <img className="h-10 w-10 rounded-full" src={urlFor(post.user.image).url()} alt="" />
             )
           }
-          <p className='font-extralight text-sm'>Code shared by <span className='text-green-600'>{post.author?.name}</span> - Published at {new Date(post._createdAt).toLocaleString()}</p>
+          <p className='font-extralight text-sm'>Code shared by <span className='text-green-600'>{post.user?.name}</span> - Published at {new Date(post._createdAt).toLocaleString()}</p>
         </div>
         {
           post.body && (
@@ -225,7 +229,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     _id,
     _createdAt,
     title,
-    author-> {
+    user-> {
       name,
       image
     },
